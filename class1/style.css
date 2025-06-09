@@ -1,0 +1,88 @@
+h1 {
+  color:green;
+  font-size: 10rem;
+}
+
+a {
+  color: red;
+}
+
+a:visited {
+  color: blue;
+}
+
+.heading {
+  height: 80vh;
+  background-image: url(https://img.freepik.com/free-vector/bokeh-theme-wallpaper_23-2148467962.jpg?semt=ais_hybrid&w=740);
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
+
+#target {
+  color: green;
+  border: 5px solid red;
+  border-radius: 10px;
+  border-width: 10px 50px;
+  padding: 20px;
+  margin: 40px;
+  text-align: center;
+  text-decoration: line-through black dashed;
+  text-shadow: 4px 4px 10px;
+  box-shadow: gray 5px 5px 10px;
+}
+
+.para {
+  font-family: 'Courier New', Courier, monospace;
+  /* display: none; */
+  /* visibility: hidden; */
+}
+
+div.center {
+  border: 3px solid violet;
+  width: 300px;
+  margin: auto;
+}
+
+div.center-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-2 div {
+  width: 300px;
+  border: 3px solid purple;
+}
+
+div.relative {
+  border: 3px solid orange;
+  height: 100px;
+  position: relative;
+  left: 50px;
+  top: 40px;
+  margin: 20px;
+}
+
+div.absolute {
+  border: 3px solid blue;
+  height: 50px;
+  position: absolute;
+  left: 50px;
+  top: 40px;
+  margin: 20px;
+}
+
+h2.sticky {
+  position: sticky;
+  top: 0;
+  background-color: rgba(55, 55, 55, 0.7);
+}
+
+h2.fixed {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -3;
+}
+

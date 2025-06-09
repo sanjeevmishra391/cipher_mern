@@ -1,0 +1,30 @@
+
+.container {
+  display: flex;
+  height: 300px;
+  /* flex-wrap: no-wrap; */
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+}
+
+.container div {
+  width: 200px;
+  height: 200px;
+  background-color: aliceblue;
+  border: 2px solid red;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    background-color: orange;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    background-color: red;
+    flex-direction: column;
+  }
+}
