@@ -4,6 +4,10 @@
 - Comments
 - Let, var, const
 - Data types: Number, String, Boolean, Null, Undefined, Object, Array
+- Functions
+- Objects - Properties and methods
+- Accessing object properties - Loop, Object.values(), JSON.stringify(), Object.entries()
+- Adding and deleting properties from object.
 
 
 ### Notes
@@ -21,18 +25,18 @@
 | Mutable Contents |	 Yes |	 Yes |	 Yes (but cannot reassign object) |
 |Best Use |	Legacy code (avoid in ES6+)	| For variables that change |	For constants / fixed bindings |
 
-- Hoisting is JavaScript's default behavior of moving declarations to the top.
-- Variables defined with `let` and `const` are hoisted to the top of the block, but not initialized. The variable is in a "temporal dead zone" from the start of the block until it is declared
-- JavaScript only hoists declarations, not initializations.
+- Built-in object types can be: `objects, arrays, dates, maps, sets, intarrays, floatarrays, promises, and more.`
 
-#### `this` keyword
-In JavaScript, the `this` keyword refers to an object.
+### Homework
 
-The `this` keyword refers to different objects depending on how it is used:
+- Explore about Object constructors
+- Create a guessing game. There would be a random target (between 1 to 100) and user has to in five attempts.
+In each attempt you will tell to user if the guessed number is more or less than the target number.
 
-- In an object method, `this` refers to the object.
-- Alone, `this` refers to the global object.
-- In a function, `this` refers to the global object.
-- In a function, in strict mode, `this` is undefined.
-- In an event, `this` refers to the element that received the event.
-- Methods like `call()`, `apply()`, and `bind()` can refer th`is to any object.
+Example:
+target = 8
+Guesses
+15 -- greater
+6 -- less
+10 -- greater
+8 -- guessed right
