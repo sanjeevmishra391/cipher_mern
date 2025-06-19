@@ -42,13 +42,13 @@ Two main components - **Call Stack** and **Event Queue**.
 ### Homework
 
 Call 
-`
+```
 POST_URL = 'https://jsonplaceholder.typicode.com/posts';
 
 COMMENT_URL = 'https://jsonplaceholder.typicode.com/comments';
 
 USER_URL = 'https://jsonplaceholder.typicode.com/users';
-`
+```
 and create html cards with posts, user and comment details.
 
 Also show different avatar for each user. Get it from `AVATAR_URL = 'https://robohash.org/'`

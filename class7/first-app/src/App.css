@@ -1,0 +1,10 @@
+.App {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+}
