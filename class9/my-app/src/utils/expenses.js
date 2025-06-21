@@ -1,4 +1,4 @@
-export const expenses = [
+const expenses = [
   {
     title: "Today's expenses",
     entries: [
@@ -44,4 +44,6 @@ export const expenses = [
       }
     ]
   }
-]
+];
+
+export default expenses;

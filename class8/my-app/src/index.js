@@ -6,8 +6,8 @@ import { animals } from './animals';
 // JSX
 const heading = <h1>Hello World</h1>;
 
-// use className instead of class for assigning class
-// close self-closing tags
+// use className instead of class for assigning css class
+// close self-closing tags <br />
 // to use javascript in jsx use {}
 const name = 'Prince';
 
@@ -83,6 +83,8 @@ const pics = {
 // show squirrel image if it's head else show zebra image
 
 const img = <img src={coinToss() === 'head' ? pics.squirrel : pics.zebra} alt="animal" />
+
+// list rendering
 
 const navMenus = ['Home', 'Shop', 'About Me'];
 

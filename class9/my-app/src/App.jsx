@@ -1,6 +1,6 @@
 import React from 'react';
 import ExpenseGroup from './components/ExpenseGroup';
-import {expenses} from './utils/expenses';
+import expenses from './utils/expenses';
 
 function App() {
   return (
