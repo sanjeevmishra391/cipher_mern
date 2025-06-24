@@ -1,0 +1,7 @@
+a.active {
+  color:rgb(193, 75, 32);
+}
+
+a.pending {
+  animate: pulse 1s infinite;
+}
