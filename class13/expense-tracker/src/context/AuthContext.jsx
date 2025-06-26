@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-// creata auth context
+// create auth context
 const AuthContext = createContext();
 
 // provider inside component

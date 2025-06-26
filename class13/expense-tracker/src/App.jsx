@@ -7,24 +7,34 @@ import NestedComponent from './components/NestedComponent'
 import { ThemeContext } from './context/ThemeContext'
 import { useState } from 'react'
 import Login from './components/Login'
+import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   const [theme, setTheme] = useState('dark');
   return (
     <>
-      <ThemeContext.Provider value={{theme, setTheme}}>
-        <Header />
-        <Routes>
-          <Route path="/" element={<ExpenseTracker />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/component" element={
-            <NestedComponent>
-              <About />
-              <ExpenseTracker />
-            </NestedComponent>
-          } />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <AuthProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={
+              <ProtectedRoute>
+                <ExpenseTracker />
+              </ProtectedRoute>} />
+            <Route path="/about" element={
+                <About />} />
+            <Route path="/component" element={
+              <ProtectedRoute>
+                <NestedComponent>
+                  <About />
+                  <ExpenseTracker />
+                </NestedComponent>
+              </ProtectedRoute>
+            } />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </AuthProvider>
       </ThemeContext.Provider>
     </>
   )

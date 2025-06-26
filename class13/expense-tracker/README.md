@@ -30,3 +30,6 @@ const { theme, setTheme } = useContext(ThemeContext);
 
 ## Authentication
 
+1. Created `AuthContext` - passes value - user, login, logout
+2. Created `Login` component - makes use of login function and navigate to home page on successful login
+3. Created `ProtectedRoute` component - blocks unauthenticated user from accessing page

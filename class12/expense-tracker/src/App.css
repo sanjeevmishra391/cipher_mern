@@ -5,7 +5,3 @@ a.active {
 a.pending {
   animate: pulse 1s infinite;
 }
-
-a.transitioning {
-  /* css transition is running */
-}
