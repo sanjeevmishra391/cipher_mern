@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 export default function NewPost({onAdd}) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,9 +15,15 @@ export default function NewPost({onAdd}) {
       alert('Please provide valid data');
       return;
     }
+    const id = uuidv4();
     onAdd({
-      title, content, author, postedOn: new Date()
+      id, title, content, author, postedOn: new Date()
     });
+
+    setTitle('')
+    setContent('');
+    setAuthor('');
+    navigate('/');
   }
 
   return (
@@ -53,11 +63,10 @@ export default function NewPost({onAdd}) {
           onChange={(e) => setAuthor(e.target.value)}
         />
       </div>
-      <button
+      <Button
         type="submit"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Add Blog
-      </button>
+        text="Add Blog" theme={{textColor: "text-white", bg: "bg-blue-600"}}
+      />
     </form>
   )
 }
