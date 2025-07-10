@@ -1,13 +1,15 @@
 const { users } = require('../users');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
-exports.register = (req, res) => {
+exports.register = async (req, res) => {
   const { username, password } = req.body;
-  users.push({ username, password });
+  const hashedPassword = await bcrypt.hash(password, 10);
+  users.push({ username, hashedPassword });
   res.send(`User ${username} registered`);
 };
 
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
   const { username, password } = req.body;
   const user = users.find(user => user.username === username);
 
@@ -15,13 +17,15 @@ exports.login = (req, res) => {
     return res.status(400).json({ message: 'Invalid credentials' });
   }
 
-  if (password !== user.password) {
+  const result = await bcrypt.compare(password, user.hashedPassword);
+
+  if (!result) {
     return res.status(400).json({ message: 'Invalid password credentials' });
   }
 
   const token = jwt.sign(
     { username },
-    'verysecretkey',
+    process.env.JWT_SECRET,
     { expiresIn: '1m' }
   );
 
