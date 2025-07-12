@@ -10,8 +10,8 @@ const blogSchema = new mongoose.Schema({
     required: true,
   },
   author: {
-    type: String,
-    default: 'Anonymous',
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   },
   createdAt: {
     type: Date,
