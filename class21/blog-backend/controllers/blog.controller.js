@@ -1,10 +1,12 @@
 const Blog = require('../models/blog.model');
-const { getBlogById, updateBlogById, deleleBlogById } = require('../services/blog.service');
+const { getBlogById, updateBlogById, deleleBlogById, addLikeToBlog } = require('../services/blog.service');
 const { NotFoundError, BadRequestError } = require('../exception-handling/CustomErrors');
 
 exports.createBlog = async (req, res) => {
   try {
-    const blog = new Blog(req.body);
+    const authorId = req.userId;
+    const { title, content } = req.body;
+    const blog = new Blog({ title, content, author: authorId });
     const savedBlog = await blog.save();
     const populatedBlog = await Blog.findById(savedBlog._id).populate({ path: 'author', select: 'username email' });
     return res.status(201).json({ message: "Blog created", blog: populatedBlog });
@@ -65,3 +67,19 @@ exports.deleteBlog = async (req, res) => {
   }
 }
 
+
+exports.addLikeToBlog = async (req, res) => {
+  try {
+    const response = await addLikeToBlog(req.userId, req.params.blogId);
+    console.log(response);
+    return res.status(201).json(response);
+  } catch (error) {
+    if (error instanceof NotFoundError) {
+      return res.status(404).json(error.message);
+    } else if (error instanceof BadRequestError) {
+      return res.status(400).json(error.message);
+    }
+
+    return res.status(500).json(error.message);
+  }
+}
